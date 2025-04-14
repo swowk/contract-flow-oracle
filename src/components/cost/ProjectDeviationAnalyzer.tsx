@@ -146,7 +146,7 @@ const ProjectDeviationAnalyzer = () => {
                     checked={showHighDeviationOnly}
                     onCheckedChange={setShowHighDeviationOnly}
                   />
-                  <Label htmlFor="high-deviation">仅显示高偏差项目 (>10%)</Label>
+                  <Label htmlFor="high-deviation">仅显示高偏差项目 ({">"} 10%)</Label>
                 </div>
                 
                 <Button variant="outline" size="sm">
