@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -54,7 +53,7 @@ const CompetitorAnalysis = () => {
       acc.push({ name: competitor.industry, value: 1 });
     }
     return acc;
-  }, []);
+  }, [] as {name: string, value: number}[]);
   
   const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8'];
   
@@ -170,7 +169,7 @@ const CompetitorAnalysis = () => {
                         tickFormatter={(value) => `${(value / 10000).toFixed(0)}万`}
                       />
                       <Tooltip 
-                        formatter={(value) => [`${(value / 10000).toFixed(2)}万`, '平均报价']}
+                        formatter={(value) => [`${(Number(value) / 10000).toFixed(2)}万`, '平均报价']}
                       />
                       <Legend />
                       <Bar dataKey="avgPrice" name="平均报价" fill="#1890ff" barSize={30} />
@@ -220,7 +219,7 @@ const CompetitorAnalysis = () => {
                         fill="#8884d8"
                         dataKey="value"
                         nameKey="name"
-                        label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+                        label={({ name, percent }) => `${name}: ${(Number(percent) * 100).toFixed(0)}%`}
                       >
                         {industryDistribution.map((entry, index) => (
                           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
@@ -241,7 +240,7 @@ const CompetitorAnalysis = () => {
               <li>华夏科技和星辰软件科技为主要竞争对手，中标率均超过65%</li>
               <li>竞争对手平均报价区间为89.5-99万，建议报价控制在此区间内</li>
               <li>IT服务和软件开发类企业中标率整体高于系统集成类企业</li>
-              <li>建议针对华夏科技在技术方案中突出技术创新与实施经验</li>
+              <li>建��针对华夏科技在技术方案中突出技术创新与实施经验</li>
             </ul>
           </div>
         </CardContent>

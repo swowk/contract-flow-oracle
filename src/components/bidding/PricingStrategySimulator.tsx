@@ -7,6 +7,14 @@ import { Slider } from "@/components/ui/slider";
 import { Label } from "@/components/ui/label";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, AreaChart, Area } from 'recharts';
 
+type SimulationDataPoint = {
+  price: number;
+  priceRatio: number;
+  probability: number;
+  profit: number;
+  expectedProfit: number;
+};
+
 const PricingStrategySimulator = () => {
   const [basePrice, setBasePrice] = useState(1000000);
   const [competitorCount, setCompetitorCount] = useState(5);
@@ -15,7 +23,7 @@ const PricingStrategySimulator = () => {
   const [priceWeight, setPriceWeight] = useState(40);
   
   // Generate simulation data based on user inputs
-  const generateSimulationData = () => {
+  const generateSimulationData = (): SimulationDataPoint[] => {
     // Price range from -20% to +10% of base price
     const minPrice = basePrice * 0.8;
     const maxPrice = basePrice * 1.1;
@@ -74,7 +82,7 @@ const PricingStrategySimulator = () => {
   // Find the optimal price point (highest expected profit)
   const optimalDataPoint = simulationData.reduce((max, point) => 
     point.expectedProfit > max.expectedProfit ? point : max, 
-    { expectedProfit: -Infinity }
+    simulationData[0] || { price: 0, priceRatio: 0, probability: 0, profit: 0, expectedProfit: 0 }
   );
   
   return (
@@ -169,17 +177,17 @@ const PricingStrategySimulator = () => {
                 <CartesianGrid strokeDasharray="3 3" opacity={0.1} />
                 <XAxis 
                   dataKey="price" 
-                  tickFormatter={(value) => `${(value / 10000).toFixed(0)}万`}
+                  tickFormatter={(value) => `${(Number(value) / 10000).toFixed(0)}万`}
                 />
                 <YAxis yAxisId="left" orientation="left" />
                 <YAxis yAxisId="right" orientation="right" domain={[0, 100]} />
                 <Tooltip 
                   formatter={(value, name) => {
                     if (name === 'probability') return [`${value}%`, '中标概率'];
-                    if (name === 'expectedProfit') return [`${(value / 10000).toFixed(2)}万元`, '期望利润'];
+                    if (name === 'expectedProfit') return [`${(Number(value) / 10000).toFixed(2)}万元`, '期望利润'];
                     return [value, name];
                   }}
-                  labelFormatter={(value) => `报价: ${(value / 10000).toFixed(2)}万元`}
+                  labelFormatter={(value) => `报价: ${(Number(value) / 10000).toFixed(2)}万元`}
                 />
                 <Legend />
                 <Line

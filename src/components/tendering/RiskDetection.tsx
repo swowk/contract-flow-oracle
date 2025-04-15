@@ -137,7 +137,7 @@ const RiskDetection = () => {
                       </AlertDescription>
                     </Alert>
                     
-                    <Alert variant="warning">
+                    <Alert>
                       <AlertTriangle className="h-4 w-4" />
                       <AlertTitle>中风险：资质要求过高</AlertTitle>
                       <AlertDescription>
@@ -145,7 +145,7 @@ const RiskDetection = () => {
                       </AlertDescription>
                     </Alert>
                     
-                    <Alert variant="warning">
+                    <Alert>
                       <AlertTriangle className="h-4 w-4" />
                       <AlertTitle>中风险：业绩要求不合理</AlertTitle>
                       <AlertDescription>

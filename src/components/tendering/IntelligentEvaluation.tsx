@@ -158,7 +158,7 @@ const IntelligentEvaluation = () => {
                       </AlertDescription>
                     </Alert>
                     
-                    <Alert variant="warning" className="bg-amber-50 border-amber-200">
+                    <Alert className="bg-amber-50 border-amber-200">
                       <AlertTriangle className="h-4 w-4" />
                       <AlertTitle>中风险项</AlertTitle>
                       <AlertDescription>
@@ -166,7 +166,7 @@ const IntelligentEvaluation = () => {
                       </AlertDescription>
                     </Alert>
                     
-                    <Alert variant="warning" className="bg-amber-50 border-amber-200">
+                    <Alert className="bg-amber-50 border-amber-200">
                       <AlertTriangle className="h-4 w-4" />
                       <AlertTitle>中风险项</AlertTitle>
                       <AlertDescription>

@@ -85,6 +85,20 @@ const SupplierRiskMonitor = () => {
     }
   };
   
+  // Get progress indicator class based on risk score
+  const getProgressIndicatorClass = (score) => {
+    if (score > 70) return "bg-red-500";
+    if (score > 40) return "bg-amber-500";
+    return "bg-green-500";
+  };
+  
+  // Get progress background class based on risk score
+  const getProgressClass = (score) => {
+    if (score > 70) return "bg-red-100";
+    if (score > 40) return "bg-amber-100";
+    return "bg-green-100";
+  };
+  
   return (
     <div className="space-y-6">
       <Card>
@@ -162,15 +176,7 @@ const SupplierRiskMonitor = () => {
                         <div className="text-sm font-medium mb-2">风险指数趋势</div>
                         <Progress 
                           value={supplier.riskScore} 
-                          className={cn(
-                            "h-2",
-                            supplier.riskScore > 70 ? "bg-red-100" : 
-                            supplier.riskScore > 40 ? "bg-amber-100" : "bg-green-100",
-                          )}
-                          indicatorClassName={
-                            supplier.riskScore > 70 ? "bg-red-500" : 
-                            supplier.riskScore > 40 ? "bg-amber-500" : "bg-green-500"
-                          }
+                          className={cn("h-2", getProgressClass(supplier.riskScore))}
                         />
                       </div>
                       
