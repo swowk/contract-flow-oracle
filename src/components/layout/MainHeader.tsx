@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Bell, Search, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -18,7 +17,7 @@ const MainHeader = () => {
     <header className="border-b border-border h-16 px-4 flex items-center justify-between bg-background">
       <div className="flex items-center">
         <SidebarTrigger className="mr-4" />
-        <h1 className="text-xl font-semibold">合同流程智能平台</h1>
+        <h1 className="text-xl font-semibold">招投标智能服务平台</h1>
       </div>
       
       <div className="flex-1 max-w-md mx-8">

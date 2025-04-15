@@ -45,9 +45,9 @@ const MainSidebar = () => {
         <div className="px-3 py-2">
           <div className="flex items-center">
             <LineChart className="h-6 w-6 mr-2 text-blue-600" />
-            <span className="text-xl font-bold">合同流程智能平台</span>
+            <span className="text-xl font-bold">招投标智能服务平台</span>
           </div>
-          <p className="text-xs text-muted-foreground mt-1">Contract Flow Oracle</p>
+          <p className="text-xs text-muted-foreground mt-1">Bidding and Tendering Intelligence Platform</p>
         </div>
       </SidebarHeader>
       
